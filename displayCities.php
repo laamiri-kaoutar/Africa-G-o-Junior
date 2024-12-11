@@ -6,18 +6,16 @@ $query ="SELECT * FROM ville /*WHERE paysID=$paysID*/";
 
 $result = mysqli_query($conn,$query);
 
-// while ($data = mysqli_fetch_assoc($result)):
-//     if (!$data) {
-//       echo "there is no cities yet for this country";
-//       break;
-//     }
-//     echo $data['villeID'];
-//     echo "<br>";
-//     echo $data['paysID'];
-//     echo "<br>";
-//     echo $data['name'];
-//     echo "<br>";
-//   endwhile;
+echo "gvhsgvdcv";
+
+var_dump(!$result);
+$count = $result->num_rows;
+echo $count;
+
+// if (!$result) {
+//     echo  "hfufuf";    
+// }
+
 
  ?>
 
@@ -98,8 +96,8 @@ $result = mysqli_query($conn,$query);
                
                <div class="ville_btn">
                    <h5 class="card-title"><?= $Data['name']?></h5>
-                   <a href="update_ville.php?<?= $Data["paysID"]?>" class="btn btn-outline-success">up</a>
-                   <a href="delete_ville.php?<?= $Data["paysID"]?>" class="btn btn-outline-danger">de</a>
+                   <a href="update_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success">up</a>
+                   <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger">de</a>
                </div>
               </div>
              </div>

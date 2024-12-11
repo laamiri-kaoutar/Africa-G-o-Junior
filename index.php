@@ -137,6 +137,12 @@ https://templatemo.com/tm-580-woox-travel
   </section>
 
 
+<div class="">
+  <a href="add_pays.php" class="btn btn-outline-success">add new country</a>
+  <a href="form_ville.php" class="btn btn-outline-danger">add new city</a>
+</div>
+
+
 
 <section class="countries-section">
  
