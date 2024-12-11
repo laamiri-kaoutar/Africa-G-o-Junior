@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>WoOx Travel - About Us</title>
+    <title>MAMA Us</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,13 +19,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
   </head>
 
 <body>
@@ -137,26 +131,23 @@ https://templatemo.com/tm-580-woox-travel
   </section>
 
 
-<div class="">
-  <a href="add_pays.php" class="btn btn-outline-success">add new country</a>
-  <a href="form_ville.php" class="btn btn-outline-danger">add new city</a>
-</div>
+
 
 
 
 <section class="countries-section">
- 
-    <form method="post" action="add_pays.php ">
-      <input type="submit" class="btn custom-btn " name="add" value="add country" >
-    
-       <!-- <button type="submit" class="btn custom-btn" name="add">Add Country</button> -->
-    </form>
+
     <?php 
      require 'include/database.php';
      $result = mysqli_query($conn,"SELECT * FROM pays");
     ?>
 
     <h2>AFRICA COUNTRIES</h2>
+
+    <div class="adding_btns">
+      <a href="add_pays.php" class="btn btn-outline-success">add new country</a>
+      <a href="form_ville.php" class="btn btn-outline-danger">add new city</a>
+    </div> 
     <div class="visit-country">
         <div class="container">
           <div class="row">
