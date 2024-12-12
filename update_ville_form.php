@@ -1,22 +1,3 @@
-<?php 
-require "include/database.php";
-$id = $_GET['id'];
-// $id = 40;
-
-
-
-
-$query ="SELECT * FROM pays WHERE paysID=$id";
-
-$result = mysqli_query($conn, $query);
-
-$data = mysqli_fetch_assoc($result);
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,42 +65,68 @@ $data = mysqli_fetch_assoc($result);
   <!-- ***** Header Area End ***** -->
 
 
+  <?php 
+    
+    require "include/database.php";
+    // $id = $_GET['id'];
+    $id = 41;
+    
+    
+    
+    
+    $query ="SELECT * FROM ville WHERE villeID=$id";
+    
+    $villeresult = mysqli_query($conn, $query);
+    
+    $ville = mysqli_fetch_assoc($villeresult);
+    
+    $paysresult= mysqli_query($conn,"SELECT  name FROM paysID=$ville['paysID']");
+    $pays = mysqli_fetch_assoc($paysresult);
+
+
+    $result = mysqli_query($conn,"SELECT paysID, name FROM pays");
+  ?>
+
   <section>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Update <?= $data['name'] ?> Country</h1>
-        <form method="post" action="update_pays.php?id=<?=$id?>">
+  <div class="container mt-5">
+        <h1 class="text-center mb-4">Add a New City</h1>
+        <form method="post" action="add_ville.php">
             <div class="mb-3">
-                <label for="name" class="form-label">Country Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter country name" value="<?= $data['name'] ?>" required>
+                <label for="name" class="form-label">City Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter country name" value="<?=$ville['name'] ?>" required>
             </div>
 
             <div class="mb-3">
-                <label for="population" class="form-label">Population</label>
-                <input type="number" class="form-control" id="population" name="population" placeholder="Enter population" value="<?= $data['population'] ?>" required>
+                <select name="type" id="type" class="form-select" value="<?=$ville['type'] ?>" aria-label="Default select example">
+                    <option selected>select type </option>
+                    <option value="ville">ville</option>
+                    <option value="capital">capital</option>
+                </select>
+
             </div>
 
             <div class="mb-3">
-                <label for="language" class="form-label">Language</label>
-                <input type="text" class="form-control" id="language" name="language" placeholder="Enter official language" value="<?= $data['langues'] ?>" required>
+                <label for="image" class="form-label">curent Image :<?=$ville['image'] ?> </label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
             </div>
-
             <div class="mb-3">
-                <label for="image" class="form-label">Courent Image :<?= $data['image'] ?> </label>
-                <input type="file" class="form-control" id="image" name="image" accept="image/*" >
+                <select name="payID" id="payID" class="form-select" value="<?=$pays['name'] ?>" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                   <?php while($Data = mysqli_fetch_assoc($result)):?>
+                     <option value="<?= $Data["paysID"]?>"><?= $Data["name"]?></option>
+                     <?php endwhile;?>
+                </select>
+
             </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter country description" required><?= $data['description'] ?></textarea>
-            </div>
-
-            <input type="submit" class="btn custom-btn " name="add" value="update country" >
+            <input type="submit" class="btn custom-btn " name="add" value="add city" >
             <!-- <button type="submit" class="btn custom-btn" name="add">Add Country</button> -->
 
         </form>
     </div> 
     
   </section>
+
 
  
 

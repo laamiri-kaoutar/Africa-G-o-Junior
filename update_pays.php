@@ -1,5 +1,6 @@
 <?php 
 require "include/database.php";
+
 $id = $_GET['id'];
 
 
@@ -7,23 +8,12 @@ $id = $_GET['id'];
 
 
 $query ="SELECT * FROM pays WHERE paysID=$id";
+$result = $conn -> 
 
 $result = mysqli_query($conn, $query);
 
 $data = mysqli_fetch_assoc($result);
 
-
-
-// echo $data['name'] ;
-// echo "<br>";
-// echo $data['population'] ;
-// echo "<br>";
-// echo $data['langues'] ;
-// echo "<br>";
-// echo $data['image'] ;
-// echo "<br>";
-// echo $data['description'] ;
-// echo "<br>";
 
 
 $name = $_POST['name'];
@@ -33,16 +23,6 @@ $description = $_POST['description'];
 $image = $_POST['image'];
 $idcontinent = 1;
 
-// echo $name;
-// echo "<br>";
-// echo $population ;
-// echo "<br>";
-// echo $language ;
-// echo "<br>";
-// echo $image;
-// echo "<br>";
-// echo $description ;
-// echo "<br>";
 
 if (!empty($name) && !empty($population) &&!empty($language) &&!empty($description)  ) {
     if ($name != $data['name'] ) {
@@ -74,7 +54,8 @@ if (!empty($name) && !empty($population) &&!empty($language) &&!empty($descripti
         echo "UPDATE  image";
     }
 
-    
+    header('Location: index.php');
+
 
  
 

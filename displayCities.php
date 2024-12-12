@@ -2,7 +2,7 @@
 require 'include/database.php';
 $paysID= $_GET['id'];
 
-$query ="SELECT * FROM ville /*WHERE paysID=$paysID*/";
+$query ="SELECT * FROM ville WHERE paysID=$paysID";
 
 $result = mysqli_query($conn,$query);
 $count = $result->num_rows;

@@ -12,6 +12,7 @@ require 'include/database.php';
     if (!empty($name) && !empty($type) &&!empty($image)   ) {
 
         $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");
+        $conn->query()
 
         
         if (!$result) {

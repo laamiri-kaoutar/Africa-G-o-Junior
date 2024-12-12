@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>MAMA Us</title>
+    <title>Mama Africa</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -170,7 +170,8 @@
                              <h4><?= $Data["name"]?></h4>
                              <span>Africa</span>
                              <div class="main-button">
-                               <a href="delete_pays.php?id=<?= $Data['paysID']?>">update</a>
+                               <a href="update_pays_form.php?id=<?= $Data['paysID']?>">update</a>
+                               <a href="delete_pays.php?id=<?= $Data['paysID']?>">remove</a>
                              </div>
                              <p><?= $Data["description"]?></p>
                              <ul class="info">
@@ -188,64 +189,7 @@
                    </div>
                    
                  <?php endwhile;?> 
-                  <!-- <div class="col-lg-12">
-                    <div class="item">
-                      <div class="row">
-                        <div class="col-lg-4 col-sm-5">
-                          <div class="image">
-                            <img src="assets/images/country-01.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-sm-7">
-                          <div class="right-content">
-                            <h4>SWITZERLAND</h4>
-                            <span>Europe</span>
-                            <div class="main-button">
-                              <a href="about.html">update</a>
-                            </div>
-                            <p>Woox Travel is a professional Bootstrap 5 theme HTML CSS layout for your website. You can use this layout for your commercial work.</p>
-                            <ul class="info">
-                              <li><i class="fa fa-user"></i> 8.66 Mil People</li>
-                              <li><i class="fa fa-globe"></i> 41.290 km2</li>
-                              <li><i class="fa fa-home"></i> $1.100.200</li>
-                            </ul>
-                            <div class="text-button">
-                              <a href="about.html">Explore cities <i class="fa fa-arrow-right"></i> </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="item">
-                      <div class="row">
-                        <div class="col-lg-4 col-sm-5">
-                          <div class="image">
-                            <img src="assets/images/country-02.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-sm-7">
-                          <div class="right-content">
-                            <h4>CARIBBEAN</h4>
-                            <span>North America</span>
-                            <div class="main-button">
-                              <a href="about.html">update</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            <ul class="info">
-                              <li><i class="fa fa-user"></i> 44.48 Mil People</li>
-                              <li><i class="fa fa-globe"></i> 275.400 km2</li>
-                              <li><i class="fa fa-home"></i> $946.000</li>
-                            </ul>
-                            <div class="text-button">
-                              <a href="about.html">Explore cities <i class="fa fa-arrow-right"></i> </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
+        
                 </div>
               </div>
             </div>
