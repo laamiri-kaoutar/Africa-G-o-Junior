@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
+
   </head>
 
 <body>
@@ -160,7 +161,8 @@
                        <div class="row">
                          <div class="col-lg-4 col-sm-5">
                            <div class="image">
-                             <img src="assets/images/<?= $Data["image"]?>" alt="">
+                             <img src="assets/images/<?= $Data['image']?>" class="card-img-top" alt="city image">
+                             <!-- <img src="C:\xampp\htdocs\africa\assets\images\citi" alt=""> -->
                            </div>
                          </div>
                          <div class="col-lg-8 col-sm-7">
@@ -168,13 +170,13 @@
                              <h4><?= $Data["name"]?></h4>
                              <span>Africa</span>
                              <div class="main-button">
-                               <a href="about.html">update</a>
+                               <a href="delete_pays.php?id=<?= $Data['paysID']?>">update</a>
                              </div>
                              <p><?= $Data["description"]?></p>
                              <ul class="info">
                                <li><i class="fa fa-user"></i> <?= $Data["population"]?> M People</li>
                                <li><i class="fa fa-globe"></i> <?= $Data["langues"]?></li>
-                               <li><i class="fa fa-home"></i> $1.100.200</li>
+                               <li><i class="fa fa-home"></i> <?= $Data["image"]?> $1.100.200</li>
                              </ul>
                              <div class="text-button">
                                <a href="displayCities.php?id=<?= $Data["paysID"]?>">Explore cities <i class="fa fa-arrow-right"></i> </a>
@@ -184,6 +186,7 @@
                        </div>
                      </div>
                    </div>
+                   
                  <?php endwhile;?> 
                   <!-- <div class="col-lg-12">
                     <div class="item">

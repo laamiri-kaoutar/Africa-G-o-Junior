@@ -1,18 +1,21 @@
-<?php
-require 'include/database.php';
-$paysID= $_GET['id'];
-
-$query ="SELECT * FROM ville /*WHERE paysID=$paysID*/";
-
-$result = mysqli_query($conn,$query);
-$count = $result->num_rows;
-echo $count;
-if (!$count) {
-    header('Location: index.php');
- }
+<?php 
+require "include/database.php";
+// $id = $_GET['id'];
+$id = 40;
 
 
- ?>
+
+
+$query ="SELECT * FROM pays WHERE paysID=$id";
+
+$result = mysqli_query($conn, $query);
+
+$data = mysqli_fetch_assoc($result);
+
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,40 +83,47 @@ if (!$count) {
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <main>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php while ($Data = mysqli_fetch_assoc($result)): ?>
-          <div class="col">
-             <div class="card" style="width: 18rem;">
-               <img src="assets/images/<?= $Data['image']?>" class="card-img-top" alt="city image">
-               <div class="card-body">
-               
-               <div class="ville_btn">
-                   <h5 class="card-title"><?= $Data['name']?></h5>
-                   <a href="update_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success">up</a>
-                   <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger">de</a>
-               </div>
-              </div>
-             </div>
-          </div>
-       <?php endwhile; ?>
-    </div>
+  <section>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Update <?= $data['name'] ?> Country</h1>
+        <form method="post" action="update_pays.php?id=<?=$id?>">
+            <div class="mb-3">
+                <label for="name" class="form-label">Country Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter country name" value="<?= $data['name'] ?>" required>
+            </div>
 
+            <div class="mb-3">
+                <label for="population" class="form-label">Population</label>
+                <input type="number" class="form-control" id="population" name="population" placeholder="Enter population" value="<?= $data['population'] ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="language" class="form-label">Language</label>
+                <input type="text" class="form-control" id="language" name="language" placeholder="Enter official language" value="<?= $data['langues'] ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Courent Image :<?= $data['image'] ?> </label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" >
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter country description" required><?= $data['description'] ?></textarea>
+            </div>
+
+            <input type="submit" class="btn custom-btn " name="add" value="update country" >
+            <!-- <button type="submit" class="btn custom-btn" name="add">Add Country</button> -->
+
+        </form>
+    </div> 
     
+  </section>
 
-  </main>
+ 
 
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2024 <a href="#">Mama AFRICA</a> Company. All rights reserved. 
-        </div>
-      </div>
-    </div>
-  </footer>
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
