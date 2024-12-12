@@ -80,7 +80,7 @@
     
     $ville = mysqli_fetch_assoc($villeresult);
     
-    $paysresult= mysqli_query($conn,"SELECT  name FROM paysID=$ville['paysID']");
+    $paysresult= mysqli_query($conn,"SELECT  name FROM pays where paysID=$ville['paysID']");
     $pays = mysqli_fetch_assoc($paysresult);
 
 
@@ -102,7 +102,7 @@
                     <option value="ville">ville</option>
                     <option value="capital">capital</option>
                 </select>
-
+     
             </div>
 
             <div class="mb-3">
