@@ -140,6 +140,7 @@
 
     <?php 
      require 'include/database.php';
+     
      $result = mysqli_query($conn,"SELECT * FROM pays");
     ?>
 

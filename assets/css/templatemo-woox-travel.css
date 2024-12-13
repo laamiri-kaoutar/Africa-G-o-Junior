@@ -1,29 +1,7 @@
 /*
 
-TemplateMo 580 Woox Travel
 
-https://templatemo.com/tm-580-woox-travel
 
-*/
-/* ---------------------------------------------
-Table of contents
-------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. header
-05. banner
-06. features
-07. testimonials
-08. contact
-09. footer
-
---------------------------------------------- */
-/* 
----------------------------------------------
-font & reset css
---------------------------------------------- 
-*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 /* 
 ---------------------------------------------
@@ -39,6 +17,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   border: 0;
   outline: 0;
 }
+
 
 .clearfix:after {
   content: ".";
@@ -2205,19 +2184,8 @@ body {
   }
   .weekly-offers .container-fluid {
     padding: 0px;
+    
   }
 }
 
 
-.cities{
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  /* width: 100%; */
-}
-.cities-container{
-  text-align: center !important;
-  margin-top: 24px !important;
-  padding: 100px !important;
-}

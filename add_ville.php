@@ -3,12 +3,6 @@
 require 'include/database.php';
 
 
-    $query ="SELECT * FROM ville WHERE villeID=$id";
-        
-    $villeresult = mysqli_query($conn, $query);
-    
-    $ville = mysqli_fetch_assoc($villeresult);
-  
     $name = $_POST['name'];
     $type = $_POST['type'];
     $image = $_POST['image'];

@@ -100,10 +100,13 @@
             </div>
 
             <div class="mb-3">
-                <select name="type" id="type" class="form-select" value="<?=$ville['type'] ?>" aria-label="Default select example">
-                    <option selected>select type </option>
+                <select name="type" id="type" class="form-select"  aria-label="Default select example">
+                    <option >select type </option>
                     <option value="ville">ville</option>
                     <option value="capital">capital</option>
+                    <option value="<?=$ville['type'] ?>" selected><?=$ville['type'] ?></option>
+
+
                 </select>
      
             </div>

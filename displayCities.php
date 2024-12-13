@@ -39,6 +39,31 @@ if (!$count) {
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
 
+
+    <style>
+      .cities{
+       display: flex;
+       flex-wrap: wrap;
+       gap: 16px;
+       width: 100%;
+       justify-content: start;
+       }
+       .cities-container{
+       text-align: center ;
+       margin-top: 24px ;
+       padding: 50px  24px ;
+       }
+
+       .cities-container h1 {
+        margin-bottom: 40px ;
+       }
+       .ville_btn {
+         display: flex;  
+         justify-content: space-between;
+        }
+
+    </style>
+
   </head>
 
 <body>
@@ -90,7 +115,7 @@ if (!$count) {
 
   <div class="cities-container">
     <div>
-     <h1> the cities of <?= $pays["name"] ?> </h1>
+     <h1>Cities of <?= $pays["name"] ?> </h1>
     </div>
 
     <div class="cities">
@@ -102,8 +127,10 @@ if (!$count) {
                  
                  <div class="ville_btn">
                      <h5 class="card-title"><?= $Data['name']?></h5>
-                     <a href="update_ville_form.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success">up</a>
-                     <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger">de</a>
+                     <div>
+                        <a href="update_ville_form.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+                     </div>
                  </div>
                 </div>
                </div>
