@@ -68,8 +68,8 @@
   <?php 
     
     require "include/database.php";
-    // $id = $_GET['id'];
-    $id = 41;
+    $id = $_GET['id'];
+    // $id = 41;
     
     
     
@@ -79,9 +79,10 @@
     $villeresult = mysqli_query($conn, $query);
     
     $ville = mysqli_fetch_assoc($villeresult);
+    $paysID=  $ville['paysID'];
     
-    // $paysresult= mysqli_query($conn,"SELECT  name FROM pays where paysID like $ville['paysID']) ");
-    // $pays = mysqli_fetch_assoc($paysresult);
+    $paysresult= mysqli_query($conn,"SELECT  name FROM pays where paysID like $paysID ");
+    $pays = mysqli_fetch_assoc($paysresult);
 
 
     $result = mysqli_query($conn,"SELECT paysID, name FROM pays");
@@ -89,13 +90,12 @@
 
   <section>
   <div class="container mt-5">
-        <h1 class="text-center mb-4">Add a New City</h1>
+        <h1 class="text-center mb-4">update <?=$ville['name'] ?> City</h1>
 
-        <?php  echo var_dump($ville['paysID'])  ?>
 
-        <form method="post" action="add_ville.php">
+        <form method="post" action="update_ville.php?id=<?=$id?>">
             <div class="mb-3">
-                <label for="name" class="form-label">City Name</label>
+                <label for="name" class="form-label">city Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter country name" value="<?=$ville['name'] ?>" required>
             </div>
 
@@ -110,20 +110,27 @@
 
             <div class="mb-3">
                 <label for="image" class="form-label">curent Image :<?=$ville['image'] ?> </label>
-                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" >
             </div>
+
             <div class="mb-3">
-                <select name="payID" id="payID" class="form-select"  aria-label="Default select example">
-                    <option selected>select the country:</option>
+                <select name="paysID" id="payID" class="form-select"  aria-label="Default select example">
+                    <option >select the country:</option>
                    <?php while($Data = mysqli_fetch_assoc($result)):?>
+                     <?php if ($Data["name"] == $pays['name']) {?>
+                       <option value="<?= $Data["paysID"]?>" selected> <?= $Data["name"]?></option>
+                        <?php
+                      }else { ?>
+
                      <option value="<?= $Data["paysID"]?>"><?= $Data["name"]?></option>
-                     <?php endwhile;?>
+                     <?php
+                      } ?>
+                   <?php endwhile;?>
                 </select>
 
             </div>
 
-            <input type="submit" class="btn custom-btn " name="add" value="add city" >
-            <!-- <button type="submit" class="btn custom-btn" name="add">Add Country</button> -->
+            <input type="submit" class="btn custom-btn " name="add" value="update city" >
 
         </form>
     </div> 

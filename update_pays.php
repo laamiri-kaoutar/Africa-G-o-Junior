@@ -8,7 +8,6 @@ $id = $_GET['id'];
 
 
 $query ="SELECT * FROM pays WHERE paysID=$id";
-$result = $conn -> 
 
 $result = mysqli_query($conn, $query);
 
@@ -27,31 +26,59 @@ $idcontinent = 1;
 if (!empty($name) && !empty($population) &&!empty($language) &&!empty($description)  ) {
     if ($name != $data['name'] ) {
         $query = "UPDATE pays set name ='$name' WHERE paysID= $id ";
-        mysqli_query($conn ,$query);
-        echo "UPDATE  name";
+        $result= mysqli_query($conn ,$query);
+        if (!$result) {
+            die("Error inserting data: " . mysqli_error($conn));
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            echo "UPDATE  name";
+        }
+        
     }
     if ($population != $data['population'] ) {
         $query = "UPDATE pays set population ='$population' WHERE paysID= $id ";
-        mysqli_query($conn ,$query);
-        echo "UPDATE  population";
+        $result=mysqli_query($conn ,$query);
+        if (!$result) {
+            die("Error inserting data: " . mysqli_error($conn));
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            echo "UPDATE  population";
+        }
 
     }
     if ($language != $data['langues'] ) {
         $query = "UPDATE pays set langues ='$language' WHERE paysID= $id ";
-        mysqli_query($conn ,$query);
-        echo "UPDATE  language";
+        $result=mysqli_query($conn ,$query);
+        if (!$result) {
+            die("Error inserting data: " . mysqli_error($conn));
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            echo "UPDATE  language";
+        }
+        
 
     }
     if ($description != $data['description'] ) {
         $query = "UPDATE pays set description ='$description' WHERE paysID= $id ";
-        mysqli_query($conn ,$query);
-        echo "UPDATE  description";
+        $result=mysqli_query($conn ,$query);
+        if (!$result) {
+            die("Error inserting data: " . mysqli_error($conn));
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            echo "UPDATE  description";
+        }
 
         }
     if ($image != $data['image'] and !empty($image) ) {
         $query = "UPDATE pays set image ='$image' WHERE paysID= $id ";
-        mysqli_query($conn ,$query);
-        echo "UPDATE  image";
+        $result=mysqli_query($conn ,$query);
+        if (!$result) {
+            die("Error inserting data: " . mysqli_error($conn));
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            echo "UPDATE  image";
+        }
+
     }
 
     header('Location: index.php');

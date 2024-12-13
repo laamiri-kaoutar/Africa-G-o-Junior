@@ -2,6 +2,12 @@
 
 require 'include/database.php';
 
+
+    $query ="SELECT * FROM ville WHERE villeID=$id";
+        
+    $villeresult = mysqli_query($conn, $query);
+    
+    $ville = mysqli_fetch_assoc($villeresult);
   
     $name = $_POST['name'];
     $type = $_POST['type'];
@@ -11,7 +17,9 @@ require 'include/database.php';
 
     if (!empty($name) && !empty($type) &&!empty($image)   ) {
 
-        $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");      
+        $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");   
+        
+        
         if (!$result) {
             die("Error inserting data: " . mysqli_error($conn));
         } else {

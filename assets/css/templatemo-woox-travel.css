@@ -724,6 +724,8 @@ Header Style
   padding: 12px;
 }
 
+
+
 /* 
 ---------------------------------------------
 Banner Style
@@ -2204,4 +2206,18 @@ body {
   .weekly-offers .container-fluid {
     padding: 0px;
   }
+}
+
+
+.cities{
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  /* width: 100%; */
+}
+.cities-container{
+  text-align: center !important;
+  margin-top: 24px !important;
+  padding: 100px !important;
 }

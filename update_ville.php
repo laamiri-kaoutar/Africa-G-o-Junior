@@ -1,6 +1,7 @@
 <?php 
 
 require 'include/database.php';
+$id = $_GET['id'];
 
 
 
@@ -10,28 +11,70 @@ require 'include/database.php';
     $villeresult = mysqli_query($conn, $query);
     
     $ville = mysqli_fetch_assoc($villeresult);
+    var_dump($ville);
 
 
   
     $name = $_POST['name'];
     $type = $_POST['type'];
     $image = $_POST['image'];
-    $payID = $_POST['payID'];
+    $paysID = $_POST['paysID'];
 
+    echo $name;
 
-    if (!empty($name) && !empty($type) &&!empty($image)   ) {
-
-        $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");
-        $conn->query()
-
-        
-        if (!$result) {
-            die("Error inserting data: " . mysqli_error($conn));
-        } else {
-            header('Location: index.php');
-        }
-    } else {
-
-        echo "Please full fill all the fiels";
+    var_dump($name != $ville['name']);
+    var_dump(!empty($paysID));
     
-    }
+
+
+
+    if (!empty($name)  &&!empty($paysID)   ) {
+
+        if ($name != $ville['name']) {
+            $query = "UPDATE ville set name ='$name' WHERE villeID= $id ";
+            $result= mysqli_query($conn ,$query);
+            if (!$result) {
+                die("Error inserting data: " . mysqli_error($conn));
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                echo "UPDATE  name";
+            }
+        }
+
+        if ($paysID != $ville['paysID']) {
+            $query = "UPDATE ville set paysID ='$paysID' WHERE villeID= $id ";
+            $result= mysqli_query($conn ,$query);
+            if (!$result) {
+                die("Error inserting data: " . mysqli_error($conn));
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                echo "UPDATE  payID";
+            }
+        }
+
+        if ($type != $ville['type'] && !empty($type) ) {
+            $query = "UPDATE ville set type ='$type' WHERE villeID= $id ";
+            $result= mysqli_query($conn ,$query);
+            if (!$result) {
+                die("Error inserting data: " . mysqli_error($conn));
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                echo "UPDATE  type";
+            }
+        }
+
+        if ($image != $ville['image'] && !empty($image) ) {
+            $query = "UPDATE ville set image ='$image' WHERE villeID= $id ";
+            $result= mysqli_query($conn ,$query);
+            if (!$result) {
+                die("Error inserting data: " . mysqli_error($conn));
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                echo "UPDATE  image";
+            }
+        }
+        $id = $ville['paysID'];
+        header("Location:displayCities.php?id=$id" );
+
+
+    } 

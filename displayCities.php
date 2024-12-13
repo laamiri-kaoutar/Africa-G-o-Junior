@@ -1,6 +1,12 @@
 <?php
 require 'include/database.php';
 $paysID= $_GET['id'];
+$query1 ="SELECT name FROM pays WHERE paysID=$paysID";
+
+$result1= mysqli_query($conn,$query1);
+$pays= mysqli_fetch_assoc($result1);
+
+
 
 $query ="SELECT * FROM ville WHERE paysID=$paysID";
 
@@ -82,25 +88,32 @@ if (!$count) {
 
   <main>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php while ($Data = mysqli_fetch_assoc($result)): ?>
-          <div class="col">
-             <div class="card" style="width: 18rem;">
-               <img src="assets/images/<?= $Data['image']?>" class="card-img-top" alt="city image">
-               <div class="card-body">
-               
-               <div class="ville_btn">
-                   <h5 class="card-title"><?= $Data['name']?></h5>
-                   <a href="update_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success">up</a>
-                   <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger">de</a>
-               </div>
-              </div>
-             </div>
-          </div>
-       <?php endwhile; ?>
+  <div class="cities-container">
+    <div>
+     <h1> the cities of <?= $pays["name"] ?> </h1>
     </div>
 
-    
+    <div class="cities">
+      <?php while ($Data = mysqli_fetch_assoc($result)): ?>
+            <div class="col">
+               <div class="card" style="width: 18rem;">
+                 <img src="assets/images/<?= $Data['image']?>" class="card-img-top" alt="city image">
+                 <div class="card-body">
+                 
+                 <div class="ville_btn">
+                     <h5 class="card-title"><?= $Data['name']?></h5>
+                     <a href="update_ville_form.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-success">up</a>
+                     <a href="delete_ville.php?id=<?= $Data["villeID"]?>" class="btn btn-outline-danger">de</a>
+                 </div>
+                </div>
+               </div>
+            </div>
+         <?php endwhile; ?>
+    </div>
+
+
+
+  </div>
 
   </main>
 
