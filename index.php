@@ -51,7 +51,7 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#" class="active">About</a></li>
                         <li><a href="#">Deals</a></li>
                         <li><a href="#">Reservation</a></li>

@@ -60,7 +60,7 @@ $data = mysqli_fetch_assoc($result);
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="assets/images/logo_new.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
