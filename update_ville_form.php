@@ -80,8 +80,8 @@
     
     $ville = mysqli_fetch_assoc($villeresult);
     
-    $paysresult= mysqli_query($conn,"SELECT  name FROM pays where paysID=$ville['paysID']");
-    $pays = mysqli_fetch_assoc($paysresult);
+    // $paysresult= mysqli_query($conn,"SELECT  name FROM pays where paysID like $ville['paysID']) ");
+    // $pays = mysqli_fetch_assoc($paysresult);
 
 
     $result = mysqli_query($conn,"SELECT paysID, name FROM pays");
@@ -90,6 +90,9 @@
   <section>
   <div class="container mt-5">
         <h1 class="text-center mb-4">Add a New City</h1>
+
+        <?php  echo var_dump($ville['paysID'])  ?>
+
         <form method="post" action="add_ville.php">
             <div class="mb-3">
                 <label for="name" class="form-label">City Name</label>
@@ -110,8 +113,8 @@
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
             </div>
             <div class="mb-3">
-                <select name="payID" id="payID" class="form-select" value="<?=$pays['name'] ?>" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
+                <select name="payID" id="payID" class="form-select"  aria-label="Default select example">
+                    <option selected>select the country:</option>
                    <?php while($Data = mysqli_fetch_assoc($result)):?>
                      <option value="<?= $Data["paysID"]?>"><?= $Data["name"]?></option>
                      <?php endwhile;?>

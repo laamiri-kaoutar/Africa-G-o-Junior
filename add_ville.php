@@ -11,10 +11,7 @@ require 'include/database.php';
 
     if (!empty($name) && !empty($type) &&!empty($image)   ) {
 
-        $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");
-        $conn->query()
-
-        
+        $result = mysqli_query($conn,"INSERT INTO ville VALUES (null,'$payID', '$name', '$type ', '$image')");      
         if (!$result) {
             die("Error inserting data: " . mysqli_error($conn));
         } else {
