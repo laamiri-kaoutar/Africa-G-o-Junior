@@ -66,11 +66,11 @@ $data = mysqli_fetch_assoc($result);
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html" class="active">About</a></li>
-                        <li><a href="deals.html">Deals</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                        <li><a href="reservation.html">Book Yours</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="#" class="active">About</a></li>
+                        <li><a href="#">Deals</a></li>
+                        <li><a href="#">Reservation</a></li>
+                        <li><a href="#">Book Yours</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
